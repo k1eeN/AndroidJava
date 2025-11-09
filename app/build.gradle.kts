@@ -8,6 +8,26 @@ android {
         version = release(36)
     }
 
+    flavorDimensions += "lesson"
+
+    productFlavors {
+        create("lesson3") {
+            dimension = "lesson"
+            applicationIdSuffix = ".lesson3"
+            resValue("string", "app_name", "AndroidJava Lesson3")
+        }
+        create("lesson4") {
+            dimension = "lesson"
+            applicationIdSuffix = ".lesson4"
+            resValue("string", "app_name", "AndroidJava Lesson4")
+        }
+        create("lesson5") {
+            dimension = "lesson"
+            applicationIdSuffix = ".lesson5"
+            resValue("string", "app_name", "AndroidJava Lesson5")
+        }
+    }
+
     defaultConfig {
         applicationId = "com.example.androidjava"
         minSdk = 24
