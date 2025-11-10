@@ -23,10 +23,10 @@ android {
             applicationIdSuffix = ".lesson4"
             resValue("string", "app_name", "AndroidJava Lesson4")
         }
-        create("lesson5") {
+        create("lesson5Calculator") {
             dimension = "lesson"
-            applicationIdSuffix = ".lesson5"
-            resValue("string", "app_name", "AndroidJava Lesson5")
+            applicationIdSuffix = ".lesson5Calculator"
+            resValue("string", "app_name", "AndroidJava Lesson5Calculator")
         }
     }
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidJava</string>
+    <string name="example">10 + 5 = ?</string>
+    <string name="button_answer">Answer</string>
+    <string name="incorrect">Sorry, the answer is incorrect!</string>
+    <string name="input_answer">Input answer</string>
+    <string name="you_are_right">You are right!</string>
+</resources>
