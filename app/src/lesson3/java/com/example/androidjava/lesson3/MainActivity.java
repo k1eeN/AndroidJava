@@ -1,9 +1,9 @@
 package com.example.androidjava.lesson3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,16 +15,14 @@ import com.example.androidjava.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Spinner spinnerColors;
-    private TextView textViewDescriptionTemp;
+    private EditText editTextMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        spinnerColors = findViewById(R.id.spinnerColors);
-        textViewDescriptionTemp = findViewById(R.id.textViewDescriptionTemp);
+        editTextMsg = findViewById(R.id.editTextMessage);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -32,14 +30,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void showDescription(View view) {
-        int pos = spinnerColors.getSelectedItemPosition();
-        String description = getDescriptionByPos(pos);
-        textViewDescriptionTemp.setText(description);
-    }
-
-    private String getDescriptionByPos(int pos) {
-        String[] description = getResources().getStringArray(R.array.dis_color);
-        return description[pos];
+    public void onClickSendMsg(View view) {
+        String msg = editTextMsg.getText().toString();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, msg);
+        Intent chosenIntent = Intent.createChooser(intent,getString(R.string.how_enter));
+        startActivity(chosenIntent);
     }
 }

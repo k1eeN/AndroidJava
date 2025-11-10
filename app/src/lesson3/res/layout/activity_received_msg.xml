@@ -5,29 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".lesson3.MainActivity">
+    tools:context=".lesson3.ReceivedMsgActivity">
 
-    <EditText
-        android:id="@+id/editTextMessage"
+    <TextView
+        android:id="@+id/textViewReceivedMsg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/hint_enter_message"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonSend"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:onClick="onClickSendMsg"
-        android:text="@string/button_send"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMessage" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

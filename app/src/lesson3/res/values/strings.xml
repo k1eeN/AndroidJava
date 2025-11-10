@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidJava</string>
+    <string name="button_send">Отправить</string>
+    <string name="hint_enter_message">Введите сообщение</string>
+    <string name="how_enter">Как вы хотите отпрвить сообщение?</string>
+    <string name="title_activity_received_msg">ReceivedMsgActivity</string>
+</resources>
