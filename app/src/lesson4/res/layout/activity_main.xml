@@ -5,38 +5,57 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".lesson4.MainActivity">
 
-    <Spinner
-        android:id="@+id/spinnerColors"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textViewTimer"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="48dp"
-        android:entries="@array/array_color"
+        android:layout_marginTop="50dp"
+        android:text="@string/init_time"
+        android:textSize="96sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonFineDescription"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/color_button"
-        android:onClick="showDescription"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerColors" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTimer">
 
-    <TextView
-        android:id="@+id/textViewDescriptionTemp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonFineDescription" />
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="onClickStartTimer"
+            android:text="@string/start"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonPause"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="onClickPauseTimer"
+            android:text="@string/pause"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonRestart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="onClickRestartTimer"
+            android:text="@string/restart"
+            android:textSize="24sp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

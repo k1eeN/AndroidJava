@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidJava</string>
+    <string name="init_time">0:00:00</string>
+    <string name="start">Пуск</string>
+    <string name="pause">Пауза</string>
+    <string name="restart">Сброс</string>
+</resources>
