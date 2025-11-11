@@ -28,6 +28,11 @@ android {
             applicationIdSuffix = ".lesson5Calculator"
             resValue("string", "app_name", "AndroidJava Lesson5Calculator")
         }
+        create("lesson6GameScore") {
+            dimension = "lesson"
+            applicationIdSuffix = ".lesson6GameScore"
+            resValue("string", "app_name", "AndroidJava Lesson6GameScore")
+        }
     }
 
     defaultConfig {

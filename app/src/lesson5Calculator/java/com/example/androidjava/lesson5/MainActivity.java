@@ -1,4 +1,4 @@
-package com.example.androidjava.lesson5;
+package com.example.androidjava.lesson_6_game_score;
 
 import android.os.Bundle;
 import android.view.View;
