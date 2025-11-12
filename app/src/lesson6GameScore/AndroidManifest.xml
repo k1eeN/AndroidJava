@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidJava">
         <activity
-            android:name=".lesson_6_game_score.MainActivity"
+            android:name=".lesson_7_cafe.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

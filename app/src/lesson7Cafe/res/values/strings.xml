@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidJava</string>
+    <string name="team_1">Team 1</string>
+    <string name="team_2">Team 2</string>
+    <string name="welcome">Добро пожаловать!</string>
+    <string name="user_name">Имя пользователя</string>
+    <string name="password_hint">Пароль</string>
+    <string name="sign_in_button">Войти</string>
+    <string name="greetings">Привет, %s! Что желаете?</string>
+    <string name="tea">Чай</string>
+    <string name="coffee">Кофе</string>
+    <string name="additives">Что добавить в ваш %s?</string>
+    <string name="sugar">Сахар</string>
+    <string name="milk">Молоко</string>
+    <string name="lemon">Лимон</string>
+    <string name="drink_type">Выберите желаемый напиток</string>
+    <string name="make_order">Сделать заказ</string>
+    <string name="name">Имя:</string>
+    <string name="drink">Напиток:</string>
+    <string name="drink_types">Тип напитка:</string>
+    <string name="aditives">Добавки:</string>
+    <string name="error_empty">Пожалуйста, заполните все поля</string>
+
+    <string-array name="types_of_tea">
+        <item>Зеленый</item>
+        <item>Черный</item>
+        <item>Иван чай</item>
+        <item>Чай о лонг</item>
+    </string-array>
+
+    <string-array name="types_of_coffee">
+        <item>Раф на кокосовом</item>
+        <item>Латте макиате</item>
+        <item>Капучино</item>
+        <item>Американо</item>
+        <item>Эспрессо</item>
+    </string-array>
+</resources>

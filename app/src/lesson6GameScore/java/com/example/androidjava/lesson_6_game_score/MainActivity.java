@@ -1,4 +1,4 @@
-package com.example.androidjava.lesson_6_game_score;
+package com.example.androidjava.lesson_7_cafe;
 
 import android.os.Bundle;
 import android.util.Log;
