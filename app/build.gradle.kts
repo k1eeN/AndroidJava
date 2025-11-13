@@ -38,6 +38,11 @@ android {
             applicationIdSuffix = ".lesson7Cafe"
             resValue("string", "app_name", "AndroidJava Lesson7Cafe")
         }
+        create("lesson8TodoList") {
+            dimension = "lesson"
+            applicationIdSuffix = ".lesson8TodoList"
+            resValue("string", "app_name", "AndroidJava Lesson8TodoList")
+        }
     }
 
     defaultConfig {
