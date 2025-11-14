@@ -23,13 +23,15 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton buttonAddNote;
     private NotesAdapter notesAdapter;
 
-    private Database database = Database.getInstance();
+    private NoteDatabase noteDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        noteDatabase = NoteDatabase.getInstance(getApplication());
         initViews();
 
         notesAdapter = new NotesAdapter();
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getBindingAdapterPosition();
                 Note note = notesAdapter.getNotes().get(position);
-                database.remove(note.getId());
+                noteDatabase.noteDao().remove(note.getId());
                 showNotes();
             }
         });
@@ -91,6 +93,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showNotes(){
-        notesAdapter.setNotes(database.getNotes());
+        notesAdapter.setNotes(noteDatabase.noteDao().getNotes());
     }
 }
