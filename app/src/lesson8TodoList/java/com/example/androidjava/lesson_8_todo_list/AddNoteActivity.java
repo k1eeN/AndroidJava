@@ -23,13 +23,14 @@ public class AddNoteActivity extends AppCompatActivity {
     private RadioButton radioButtonMedium;
     private Button buttonSave;
 
-    private Database database = Database.getInstance();
+    private NoteDatabase noteDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_note);
+        noteDatabase = NoteDatabase.getInstance(getApplication());
         initViews();
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -56,9 +57,8 @@ public class AddNoteActivity extends AppCompatActivity {
     private void saveNote() {
         String text= editTextNote.getText().toString().trim();
         int priority = getPriority();
-        int id = database.getNotes().size();
-        Note note = new Note(id, text, priority);
-        database.add(note);
+        Note note = new Note(text, priority);
+        noteDatabase.noteDao().add(note);
 
         finish();
     }
