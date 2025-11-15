@@ -3,7 +3,6 @@ package com.example.androidjava.lesson_8_todo_list;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 
