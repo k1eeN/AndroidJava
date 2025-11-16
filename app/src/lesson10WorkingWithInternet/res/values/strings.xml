@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidJava</string>
+    <string name="next_image">Next Image</string>
+    <string name="erorr_is_loading">Ошибка при загрузке изображения</string>
 </resources>
