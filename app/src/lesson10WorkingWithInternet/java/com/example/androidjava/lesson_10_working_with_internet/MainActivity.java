@@ -33,7 +33,6 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     private MainViewModel viewModel;
-    private static final String TAG = "MainActivityRead";
 
     private ImageView imageViewDog;
     private ProgressBar progressBar;
@@ -45,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
         initViews();
 
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);

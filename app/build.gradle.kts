@@ -95,6 +95,11 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:5.0.5")
 
+    implementation("com.google.code.gson:gson:2.8.7")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
+
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
