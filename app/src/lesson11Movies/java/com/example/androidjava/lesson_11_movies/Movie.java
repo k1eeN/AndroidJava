@@ -9,18 +9,18 @@ public class Movie {
     private String name;
     @SerializedName("description")
     private String description;
-    @SerializedName("years")
-    private int years;
+    @SerializedName("year")
+    private int year;
     @SerializedName("poster")
     private Poster poster;
     @SerializedName("rating")
     private Rating rating;
 
 
-    public Movie(Rating rating, Poster poster, int years, String description, String name, int id) {
+    public Movie(Rating rating, Poster poster, int year, String description, String name, int id) {
         this.rating = rating;
         this.poster = poster;
-        this.years = years;
+        this.year = year;
         this.description = description;
         this.name = name;
         this.id = id;
@@ -39,7 +39,7 @@ public class Movie {
     }
 
     public int getYears() {
-        return years;
+        return year;
     }
 
     public Poster getPoster() {
@@ -48,5 +48,17 @@ public class Movie {
 
     public Rating getRating() {
         return rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", year=" + year +
+                ", poster=" + poster +
+                ", rating=" + rating +
+                '}';
     }
 }
