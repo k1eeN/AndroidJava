@@ -1,5 +1,6 @@
 package com.example.androidjava.lesson_11_movies;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -43,6 +45,17 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             Glide.with(holder.itemView)
                     .load(movie.getPoster().getUrl())
                     .into(holder.imageViewPoster);
+            double rating = Double.parseDouble(movie.getRating().getKp());
+            int backgroundID;
+            if (rating > 7) {
+                backgroundID = R.drawable.circle_green;
+            } else if (rating > 5) {
+                backgroundID = R.drawable.circle_orange;
+            } else {
+                backgroundID = R.drawable.circle_red;
+            }
+            Drawable drawable = ContextCompat.getDrawable(holder.itemView.getContext(), backgroundID);
+            holder.textViewRating.setBackground(drawable);
             holder.textViewRating.setText(movie.getRating().getKp());
         }
     }
