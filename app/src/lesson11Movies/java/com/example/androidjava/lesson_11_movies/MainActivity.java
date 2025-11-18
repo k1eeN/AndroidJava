@@ -48,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
         });
         viewModel.loadMovies();
 
+        moviesAdapter.setOnReachEndListener(new MoviesAdapter.OnReachEndListener() {
+            @Override
+            public void onReachEnd() {
+                viewModel.loadMovies();
+            }
+        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
