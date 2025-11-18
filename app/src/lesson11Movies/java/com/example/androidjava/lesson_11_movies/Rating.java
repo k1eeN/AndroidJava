@@ -6,12 +6,20 @@ public class Rating {
     @SerializedName("kp")
     private String kp;
 
+    public Rating() {
+
+    }
+
     public Rating(String kp) {
         this.kp = kp;
     }
 
     public String getKp() {
         return kp;
+    }
+
+    public void setKp(String kp) {
+        this.kp = kp;
     }
 
     @Override

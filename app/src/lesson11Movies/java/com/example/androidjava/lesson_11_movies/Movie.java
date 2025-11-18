@@ -16,6 +16,10 @@ public class Movie {
     @SerializedName("rating")
     private Rating rating;
 
+    public Movie() {
+
+    }
+
 
     public Movie(Rating rating, Poster poster, int year, String description, String name, int id) {
         this.rating = rating;

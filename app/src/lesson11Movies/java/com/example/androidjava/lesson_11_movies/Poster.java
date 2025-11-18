@@ -6,6 +6,10 @@ public class Poster {
     @SerializedName("url")
     private String url;
 
+    public Poster() {
+
+    }
+
     public Poster(String url) {
         this.url = url;
     }
