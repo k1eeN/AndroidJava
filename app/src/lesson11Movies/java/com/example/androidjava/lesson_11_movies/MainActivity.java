@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getMovies().observe(this, new Observer<List<Movie>>() {
             @Override
             public void onChanged(List<Movie> movies) {
+                Log.d("Marik", movies.toString());
                 moviesAdapter.setMovies(movies);
             }
         });
