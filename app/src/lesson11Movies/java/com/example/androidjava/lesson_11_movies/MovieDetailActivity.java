@@ -12,17 +12,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.androidjava.R;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+import java.util.List;
+
 
 public class MovieDetailActivity extends AppCompatActivity {
 
     private static final String TAG = "MovieDetailActivityCheck";
+
+    private MovieDetailViewModel viewModel;
 
     private static final String EXTRA_MOVIE = "movie";
 
@@ -36,6 +39,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_movie_detail);
+        viewModel = new ViewModelProvider(this).get(MovieDetailViewModel.class);
         initView();
 
         Movie movie = (Movie) getIntent().getSerializableExtra(EXTRA_MOVIE);
@@ -49,20 +53,13 @@ public class MovieDetailActivity extends AppCompatActivity {
         textViewYear.setText(String.valueOf(movie.getYears()));
         textViewDescription.setText(movie.getDescription());
 
-        ApiFactory.apiService.loadTrailers(movie.getId())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<TrailerResponse>() {
-                    @Override
-                    public void accept(TrailerResponse trailerResponse) throws Throwable {
-                        Log.d(TAG, trailerResponse.toString());
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Throwable {
-                        Log.d(TAG, throwable.toString());
-                    }
-                });
+        viewModel.loadTrailers(movie.getId());
+        viewModel.getTrailers().observe(this, new Observer<List<Trailer>>() {
+            @Override
+            public void onChanged(List<Trailer> trailers) {
+                Log.d(TAG, trailers.toString());
+            }
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
