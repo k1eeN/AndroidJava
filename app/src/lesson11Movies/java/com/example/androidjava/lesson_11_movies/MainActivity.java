@@ -3,6 +3,7 @@ package com.example.androidjava.lesson_11_movies;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private MainViewModel viewModel;
     private RecyclerView recyclerViewMovies;
+    private ProgressBar progressBarLoading;
     private MoviesAdapter moviesAdapter;
 
     @Override
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         recyclerViewMovies = findViewById(R.id.recyclerViewMovies);
+        progressBarLoading = findViewById(R.id.progressBarLoading);
         moviesAdapter = new MoviesAdapter();
         recyclerViewMovies.setAdapter(moviesAdapter);
         recyclerViewMovies.setLayoutManager(new GridLayoutManager(this, 2));
@@ -46,8 +49,16 @@ public class MainActivity extends AppCompatActivity {
                 moviesAdapter.setMovies(movies);
             }
         });
-        viewModel.loadMovies();
-
+        viewModel.getIsLoading().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean isLoading) {
+                if (isLoading) {
+                    progressBarLoading.setVisibility(View.VISIBLE);
+                } else {
+                    progressBarLoading.setVisibility(View.GONE);
+                }
+            }
+        });
         moviesAdapter.setOnReachEndListener(new MoviesAdapter.OnReachEndListener() {
             @Override
             public void onReachEnd() {
