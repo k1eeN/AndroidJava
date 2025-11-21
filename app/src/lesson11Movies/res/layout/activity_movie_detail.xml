@@ -20,6 +20,16 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
 
+        <ImageView
+            android:id="@+id/imageViewStar"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewPoster"
+            app:layout_constraintEnd_toEndOf="@id/imageViewPoster"
+            app:layout_constraintTop_toBottomOf="@id/imageViewPoster"
+            tools:srcCompat="@android:drawable/btn_star_big_on" />
+
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
