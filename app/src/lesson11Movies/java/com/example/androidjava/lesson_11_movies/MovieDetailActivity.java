@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +21,8 @@ import com.bumptech.glide.Glide;
 import com.example.androidjava.R;
 
 import java.util.List;
+
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 public class MovieDetailActivity extends AppCompatActivity {
@@ -63,7 +64,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                     .into(imageViewPoster);
         }
         textViewTitle.setText(movie.getName());
-        textViewYear.setText(String.valueOf(movie.getYears()));
+        textViewYear.setText(String.valueOf(movie.getYear()));
         textViewDescription.setText(movie.getDescription());
 
         viewModel.loadTrailers(movie.getId());
