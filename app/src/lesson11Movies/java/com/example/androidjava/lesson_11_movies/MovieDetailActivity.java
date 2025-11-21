@@ -2,6 +2,7 @@ package com.example.androidjava.lesson_11_movies;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,10 +23,14 @@ import com.example.androidjava.R;
 
 import java.util.List;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
 
 public class MovieDetailActivity extends AppCompatActivity {
 
-//    private static final String TAG = "MovieDetailActivityCheck";
+    private static final String TAG = "MovieDetailActivityCheck";
 
     private MovieDetailViewModel viewModel;
 
@@ -73,6 +78,23 @@ public class MovieDetailActivity extends AppCompatActivity {
                 }
             }
         });
+
+        trailersAdapter.setOnTrailerClickListener(new TrailersAdapter.OnTrailerClickListener() {
+            @Override
+            public void onTrailerClick(Trailer trailer) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(trailer.getUrl()));
+                startActivity(intent);
+            }
+        });
+
+        viewModel.getReviews().observe(this, new Observer<List<Review>>() {
+            @Override
+            public void onChanged(List<Review> reviewList) {
+                Log.d(TAG, reviewList.toString());
+            }
+        });
+        viewModel.loadReviews(movie.getId());
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
