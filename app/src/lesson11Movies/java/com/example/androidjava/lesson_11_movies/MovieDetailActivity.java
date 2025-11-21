@@ -23,10 +23,6 @@ import com.example.androidjava.R;
 
 import java.util.List;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
-
 
 public class MovieDetailActivity extends AppCompatActivity {
 
@@ -42,7 +38,9 @@ public class MovieDetailActivity extends AppCompatActivity {
     private TextView textViewDescription;
     private TextView textViewTrailerMissing;
     private RecyclerView recyclerViewTrailers;
+    private RecyclerView recyclerViewReview;
     private TrailersAdapter trailersAdapter;
+    private ReviewsAdapter reviewsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +51,9 @@ public class MovieDetailActivity extends AppCompatActivity {
         initView();
 
         trailersAdapter = new TrailersAdapter();
+        reviewsAdapter = new ReviewsAdapter();
         recyclerViewTrailers.setAdapter(trailersAdapter);
+        recyclerViewReview.setAdapter(reviewsAdapter);
 
         Movie movie = (Movie) getIntent().getSerializableExtra(EXTRA_MOVIE);
         Poster poster = movie.getPoster();
@@ -91,7 +91,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         viewModel.getReviews().observe(this, new Observer<List<Review>>() {
             @Override
             public void onChanged(List<Review> reviewList) {
-                Log.d(TAG, reviewList.toString());
+                reviewsAdapter.setReviews(reviewList);
             }
         });
         viewModel.loadReviews(movie.getId());
@@ -109,6 +109,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         textViewYear = findViewById(R.id.textViewYear);
         textViewDescription = findViewById(R.id.textViewDescription);
         recyclerViewTrailers = findViewById(R.id.recyclerViewTrailers);
+        recyclerViewReview = findViewById(R.id.recyclerViewReview);
         textViewTrailerMissing = findViewById(R.id.textViewTrailerMissing);
     }
 

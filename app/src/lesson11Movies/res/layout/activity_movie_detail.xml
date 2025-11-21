@@ -50,15 +50,16 @@
             app:layout_constraintTop_toBottomOf="@id/textViewYear"
             tools:text="Description of movie" />
 
+
         <TextView
             android:id="@+id/textViewTrailerMissing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_red_dark"
-            android:padding="8dp"
-            android:textSize="24sp"
-            android:text="@string/trailer_missing"
             android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/trailer_missing"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="24sp"
             app:layout_constraintTop_toBottomOf="@id/textViewDescription" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -69,6 +70,23 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/textViewDescription"
             tools:listitem="@layout/trailer_item" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="recyclerViewTrailers, textViewTrailerMissing" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewReview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/barrier"
+            tools:listitem="@layout/review_item" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
