@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "192076177754",
+    "project_id": "messenger-16ddc",
+    "storage_bucket": "messenger-16ddc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192076177754:android:9a86efd65e8604678fd363",
+        "android_client_info": {
+          "package_name": "com.example.androidjava.lesson12Messenger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSk3HAWbXFdC-Xf6tK10bo_2CNdfJwbaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

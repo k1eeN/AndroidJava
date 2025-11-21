@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.google.firebase.crashlytics)
 }
 
 android {
@@ -53,6 +55,11 @@ android {
             applicationIdSuffix = ".lesson11Movies"
             resValue("string", "app_name", "AndroidJava Lesson11Movies")
         }
+        create("lesson12Messenger") {
+            dimension = "lesson"
+            applicationIdSuffix = ".lesson12Messenger"
+            resValue("string", "app_name", "AndroidJava Lesson12Messenger")
+        }
     }
 
     defaultConfig {
@@ -88,6 +95,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.firebase.crashlytics)
 
     val room_version = "2.8.3"
 
@@ -105,6 +113,10 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+
+    implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
+    implementation("com.google.firebase:firebase-auth")
 
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
