@@ -46,11 +46,7 @@ public class MovieDetailViewModel extends AndroidViewModel {
                 .subscribe(new Consumer<List<Trailer>>() {
                     @Override
                     public void accept(List<Trailer> trailerList) throws Throwable {
-                        if (trailerList != null && !trailerList.isEmpty()) {
-                            trailers.setValue(trailerList);
-                        } else {
-                            Log.d(TAG, trailerList.toString());
-                        }
+                        trailers.setValue(trailerList);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

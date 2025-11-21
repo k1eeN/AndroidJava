@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.androidjava.R;
@@ -23,7 +25,7 @@ import java.util.List;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
-    private static final String TAG = "MovieDetailActivityCheck";
+//    private static final String TAG = "MovieDetailActivityCheck";
 
     private MovieDetailViewModel viewModel;
 
@@ -33,6 +35,9 @@ public class MovieDetailActivity extends AppCompatActivity {
     private TextView textViewTitle;
     private TextView textViewYear;
     private TextView textViewDescription;
+    private TextView textViewTrailerMissing;
+    private RecyclerView recyclerViewTrailers;
+    private TrailersAdapter trailersAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,9 @@ public class MovieDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movie_detail);
         viewModel = new ViewModelProvider(this).get(MovieDetailViewModel.class);
         initView();
+
+        trailersAdapter = new TrailersAdapter();
+        recyclerViewTrailers.setAdapter(trailersAdapter);
 
         Movie movie = (Movie) getIntent().getSerializableExtra(EXTRA_MOVIE);
         Poster poster = movie.getPoster();
@@ -57,7 +65,12 @@ public class MovieDetailActivity extends AppCompatActivity {
         viewModel.getTrailers().observe(this, new Observer<List<Trailer>>() {
             @Override
             public void onChanged(List<Trailer> trailers) {
-                Log.d(TAG, trailers.toString());
+                if (trailers != null) {
+                    textViewTrailerMissing.setVisibility(View.GONE);
+                    trailersAdapter.setTrailers(trailers);
+                } else {
+                    textViewTrailerMissing.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -73,6 +86,8 @@ public class MovieDetailActivity extends AppCompatActivity {
         textViewTitle = findViewById(R.id.textViewTitle);
         textViewYear = findViewById(R.id.textViewYear);
         textViewDescription = findViewById(R.id.textViewDescription);
+        recyclerViewTrailers = findViewById(R.id.recyclerViewTrailers);
+        textViewTrailerMissing = findViewById(R.id.textViewTrailerMissing);
     }
 
     public static Intent newIntent(Context context, Movie movie) {
