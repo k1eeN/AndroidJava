@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">AndroidJava</string>
     <string name="trailer_missing">На данный момент, трейлер не доступен</string>
+    <string name="item_favourite">Избранное</string>
 </resources>

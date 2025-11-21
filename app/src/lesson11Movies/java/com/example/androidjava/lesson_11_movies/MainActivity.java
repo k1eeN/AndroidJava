@@ -3,6 +3,8 @@ package com.example.androidjava.lesson_11_movies;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -38,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
-        Intent intent = FavouriteMovieActivity.newIntent(this);
-        startActivity(intent);
-
         recyclerViewMovies = findViewById(R.id.recyclerViewMovies);
         progressBarLoading = findViewById(R.id.progressBarLoading);
         moviesAdapter = new MoviesAdapter();
@@ -84,5 +82,20 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.itemFavouriteMovies) {
+            Intent intent = FavouriteMovieActivity.newIntent(this);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
