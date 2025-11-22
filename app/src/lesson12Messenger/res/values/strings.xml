@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidJava</string>
+    <string name="email_hint">Ваша почта</string>
+    <string name="password_hint">Пароль</string>
+    <string name="messenger">Мессенджер</string>
+    <string name="login">Войти</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="register">Регестрация</string>
 </resources>
