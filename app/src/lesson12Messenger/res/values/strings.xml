@@ -14,4 +14,5 @@
     <string name="sign_up">Зарегистрироваться</string>
     <string name="forgot_password_screen">Забыли пароль?</string>
     <string name="reset">Сбросить</string>
+    <string name="logout">Выйти</string>
 </resources>
