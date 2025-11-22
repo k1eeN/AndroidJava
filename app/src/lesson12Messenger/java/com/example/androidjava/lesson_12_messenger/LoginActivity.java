@@ -42,7 +42,11 @@ public class LoginActivity extends AppCompatActivity {
         textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // intent forgot password
+                Intent intent = ResetPasswordActivity.newIntent(
+                        LoginActivity.this,
+                        editTextEmail.getText().toString().trim()
+                );
+                startActivity(intent);
             }
         });
 

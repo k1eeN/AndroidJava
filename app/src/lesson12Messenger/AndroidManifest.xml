@@ -11,13 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidJava">
         <activity
-            android:name=".lesson_12_messenger.RegistrationActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:name=".lesson_12_messenger.ResetPasswordActivity"
             android:exported="false" />
         <activity
+            android:name=".lesson_12_messenger.RegistrationActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".lesson_12_messenger.LoginActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -12,4 +12,6 @@
     <string name="last_name">Фамилия</string>
     <string name="age">Возраст</string>
     <string name="sign_up">Зарегистрироваться</string>
+    <string name="forgot_password_screen">Забыли пароль?</string>
+    <string name="reset">Сбросить</string>
 </resources>
