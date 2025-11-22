@@ -1,11 +1,11 @@
 package com.example.androidjava.lesson_12_messenger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,42 +15,32 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.androidjava.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
 
     private EditText editTextEmail;
     private EditText editTextPassword;
-    private Button buttonLogin;
-    private TextView textViewForgotPassword;
-    private TextView textViewRegister;
+    private EditText editTextName;
+    private EditText editTextLastName;
+    private EditText editTextAge;
+    private Button buttonSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_registration);
         initViews();
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = editTextEmail.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
-                //login
-            }
-        });
+                String email = getTrimmedValue(editTextEmail);
+                String password = getTrimmedValue(editTextPassword);
+                String name = getTrimmedValue(editTextName);
+                String lastName = getTrimmedValue(editTextLastName);
+                int age = Integer.parseInt(getTrimmedValue(editTextAge));
 
-        textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // intent forgot password
-            }
-        });
-
-        textViewRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = RegistrationActivity.newIntent(LoginActivity.this);
-                startActivity(intent);
+                // sign up
             }
         });
 
@@ -61,12 +51,20 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
     private void initViews() {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
-        buttonLogin = findViewById(R.id.buttonLogin);
-        textViewForgotPassword = findViewById(R.id.textViewForgotPassword);
-        textViewRegister = findViewById(R.id.textViewRegister);
+        editTextName = findViewById(R.id.editTextName);
+        editTextLastName = findViewById(R.id.editTextLastName);
+        editTextAge = findViewById(R.id.editTextAge);
+        buttonSignUp = findViewById(R.id.buttonSignUp);
+    }
+
+    private String getTrimmedValue(EditText editText) {
+        return editText.getText().toString().trim();
+    }
+
+    public static Intent newIntent(Context context) {
+        return new Intent(context, RegistrationActivity.class);
     }
 }

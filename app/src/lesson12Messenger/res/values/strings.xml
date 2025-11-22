@@ -7,4 +7,9 @@
     <string name="login">Войти</string>
     <string name="forgot_password">Забыли пароль?</string>
     <string name="register">Регестрация</string>
+    <string name="registration">Регистрация</string>
+    <string name="name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="age">Возраст</string>
+    <string name="sign_up">Зарегистрироваться</string>
 </resources>
