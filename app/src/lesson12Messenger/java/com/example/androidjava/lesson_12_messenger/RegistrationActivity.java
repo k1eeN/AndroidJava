@@ -72,7 +72,7 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
              if (firebaseUser != null) {
-                 Intent intent = UsersActivity.newIntent(RegistrationActivity.this);
+                 Intent intent = UsersActivity.newIntent(RegistrationActivity.this, firebaseUser.getUid());
                  startActivity(intent);
                  finish();
              }
