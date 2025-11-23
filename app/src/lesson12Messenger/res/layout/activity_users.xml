@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:padding="16dp"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/fon"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:listitem="@layout/user_item"
     tools:context=".lesson_12_messenger.UsersActivity" />

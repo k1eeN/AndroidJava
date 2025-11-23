@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="@color/element"
         android:orientation="horizontal" >
 
         <TextView
@@ -19,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="24sp"
+            android:textColor="@color/white"
             android:padding="18dp"
             android:textStyle="bold"
             tools:text="Mark Klin, 21"/>

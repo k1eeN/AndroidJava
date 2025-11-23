@@ -16,4 +16,5 @@
     <string name="reset">Сбросить</string>
     <string name="logout">Выйти</string>
     <string name="success">Ссылка на сброс была успешно отправлена на почту!</string>
+    <string name="type_message_hint">Введите сообщение:</string>
 </resources>

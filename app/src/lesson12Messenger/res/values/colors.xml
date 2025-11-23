@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fon">#0e1621</color>
+    <color name="element">#17212b</color>
+    <color name="hints">#70ffffff</color>
+    <color name="send">#5288c1</color>
+    <color name="main_color">#4798dc</color>
+</resources>
