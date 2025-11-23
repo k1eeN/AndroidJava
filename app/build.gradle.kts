@@ -116,6 +116,7 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-database")
 
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
