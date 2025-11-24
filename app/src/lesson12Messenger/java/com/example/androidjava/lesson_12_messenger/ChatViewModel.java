@@ -81,6 +81,10 @@ public class ChatViewModel extends ViewModel {
         return error;
     }
 
+    public void setUserOnline(boolean isOline) {
+        referenceUsers.child(currentUserId).child("online").setValue(isOline);
+    }
+
     public void sendMessage(Message message) {
         referenceMessages
                 .child(message.getSendId())
