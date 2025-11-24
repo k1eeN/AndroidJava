@@ -60,6 +60,11 @@ android {
             applicationIdSuffix = ".lesson12Messenger"
             resValue("string", "app_name", "AndroidJava Lesson12Messenger")
         }
+        create("lesson13BrainTrainer") {
+            dimension = "lesson"
+            applicationIdSuffix = ".lesson13BrainTrainer"
+            resValue("string", "app_name", "AndroidJava Lesson13BrainTrainer")
+        }
     }
 
     defaultConfig {
